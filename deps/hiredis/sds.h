@@ -53,9 +53,13 @@ struct __attribute__ ((__packed__)) hisdshdr5 {
     char buf[];
 };
 struct __attribute__ ((__packed__)) hisdshdr8 {
+    // 字符串的长度（实际使用的长度）
     uint8_t len; /* used */
+    // 分配内存的大小
     uint8_t alloc; /* excluding the header and null terminator */
+    // 标志位，低3位表示类型，其余5位未使用
     unsigned char flags; /* 3 lsb of type, 5 unused bits */
+    // 真正存储数据的字符数组
     char buf[];
 };
 struct __attribute__ ((__packed__)) hisdshdr16 {
